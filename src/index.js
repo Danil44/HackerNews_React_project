@@ -5,11 +5,13 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 import store from './redux/store';
 
+require('dotenv').config();
+
 ReactDOM.render(
-  <HashRouter basename="/">
-    <Provider store={store}>
+  <Provider store={store}>
+    <HashRouter basename="/">
       <App />
-    </Provider>
-  </HashRouter>,
+    </HashRouter>
+  </Provider>,
   document.getElementById('root'),
 );

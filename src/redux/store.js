@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
-import tagReducer from './NewsBar/NewsBarReducers';
+import NewsReducers from './News/NewsReducers';
 
 const rootReducer = combineReducers({
-  newsNavigation: tagReducer,
+  news: NewsReducers,
 });
 
 const middleware = applyMiddleware(ReduxThunk, logger);

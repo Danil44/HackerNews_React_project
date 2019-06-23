@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import NewsPage from './components/NewsPage/NewsPage';
 import 'typeface-roboto';
@@ -10,9 +10,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <CssBaseline>
-          <Route path="/" exact component={NewsPage} />
-        </CssBaseline>
+        <CssBaseline />
+        <Switch>
+          <Route path="/" component={NewsPage} />
+          <Redirect to="/" />
+        </Switch>
       </div>
     );
   }
