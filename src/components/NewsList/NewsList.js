@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, Box } from '@material-ui/core';
 import NewsItem from '../NewsItem/NewsItem';
 
 class NewsList extends Component {
@@ -25,17 +25,15 @@ class NewsList extends Component {
   render() {
     const { items } = this.props;
     return (
-      <div>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            {items.map(item => (
-              <Grid item xs={12} sm={6} key={item.id}>
-                <NewsItem {...item} />
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </div>
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          {items.map(item => (
+            <Grid item xs={12} sm={6} key={item.id}>
+              <NewsItem {...item} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     );
   }
 }

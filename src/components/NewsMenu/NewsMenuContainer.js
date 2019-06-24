@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewsBar from './NewsBar';
+import NewsMenu from './NewsMenu';
 import { changeTag } from '../../redux/News/NewsActions';
 
 const mapDispatchToProps = { changeTag };
@@ -7,4 +7,4 @@ const mapDispatchToProps = { changeTag };
 export default connect(
   null,
   mapDispatchToProps,
-)(NewsBar);
+)(NewsMenu);
