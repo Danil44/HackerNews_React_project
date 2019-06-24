@@ -1,33 +1,16 @@
 import React from 'react';
 import {
   AppBar,
-  Tabs,
-  Tab,
   Slide,
   useScrollTrigger,
   Toolbar,
+  Container,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import teal from '@material-ui/core/colors/teal';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import NewsMenu from '../NewsMenu/NewsMenuContainer';
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    marginBottom: 90,
-  },
-
-  container: {
-    backgroundColor: teal[900],
-  },
-
-  tabs: {
-    justifySelf: 'center',
-  },
-});
+import useStyles from './NewsBarStyles';
+import NewsSearch from '../NewsSearch/NewsSearch';
 
 const HideOnScroll = props => {
   const { children } = props;
@@ -47,9 +30,12 @@ const NewsBar = ({ location }, props) => {
     <div className={classes.root}>
       <HideOnScroll {...props}>
         <AppBar className={classes.container}>
-          <Toolbar variant="dense">
-            <NewsMenu />
-          </Toolbar>
+          <Container maxWidth="lg">
+            <Toolbar>
+              <NewsMenu />
+              <NewsSearch />
+            </Toolbar>
+          </Container>
         </AppBar>
       </HideOnScroll>
     </div>
@@ -57,6 +43,9 @@ const NewsBar = ({ location }, props) => {
 };
 
 NewsBar.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   changeTag: PropTypes.func.isRequired,
 };
 

@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {
-  MenuList,
-  MenuItem,
-  Button,
-  SwipeableDrawer,
-  IconButton,
-} from '@material-ui/core';
-import { Link, withRouter } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect, Fragment } from 'react';
+import { SwipeableDrawer, IconButton } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import PropTypes from 'prop-types';
-
-const useStyles = makeStyles({
-  list: {
-    width: 300,
-  },
-});
+import NewsMenuSideList from './NewsMenuSideList';
 
 function NewsMenu({ changeTag, location }) {
-  const classes = useStyles();
-
-  const [state, setState] = useState({
+  const [menu, setState] = useState({
     isOpen: false,
   });
 
-  const toggleDrawer = open => event => {
+  const toggleList = open => event => {
     if (
       event &&
       event.type === 'keydown' &&
@@ -41,81 +27,27 @@ function NewsMenu({ changeTag, location }) {
 
   useEffect(() => {
     changeTag(tag);
-  });
-
-  const sideList = () => (
-    <div
-      role="presentation"
-      className={classes.list}
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <MenuList>
-        <MenuItem component={Link} to="/" selected={pathname === '/'}>
-          Home
-        </MenuItem>
-        <MenuItem component={Link} to="/world" selected={pathname === '/world'}>
-          World
-        </MenuItem>
-        <MenuItem
-          component={Link}
-          to="/technology"
-          selected={pathname === '/technology'}
-        >
-          Technology
-        </MenuItem>
-        <MenuItem
-          component={Link}
-          to="/health"
-          selected={pathname === '/health'}
-        >
-          Health
-        </MenuItem>
-        <MenuItem
-          component={Link}
-          to="/sports"
-          selected={pathname === '/sports'}
-        >
-          Sports
-        </MenuItem>
-        <MenuItem
-          component={Link}
-          to="/travel"
-          selected={pathname === '/travel'}
-        >
-          Travel
-        </MenuItem>
-        <MenuItem
-          component={Link}
-          to="/science"
-          selected={pathname === '/science'}
-        >
-          Science
-        </MenuItem>
-        <MenuItem component={Link} to="/food" selected={pathname === '/food'}>
-          Food
-        </MenuItem>
-      </MenuList>
-    </div>
-  );
+  }, [tag]);
 
   return (
-    <div className={classes.list}>
+    <Fragment>
       <IconButton
         aria-label="Open menu"
         color="inherit"
-        onClick={toggleDrawer(true)}
+        onClick={toggleList(true)}
       >
         <MenuIcon />
       </IconButton>
-      <SwipeableDrawer
-        open={state.isOpen}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-      >
-        {sideList()}
-      </SwipeableDrawer>
-    </div>
+      <div>
+        <SwipeableDrawer
+          open={menu.isOpen}
+          onClose={toggleList(false)}
+          onOpen={toggleList(true)}
+        >
+          <NewsMenuSideList toggleList={toggleList} pathname={pathname} />
+        </SwipeableDrawer>
+      </div>
+    </Fragment>
   );
 }
 
