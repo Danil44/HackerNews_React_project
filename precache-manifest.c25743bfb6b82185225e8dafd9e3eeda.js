@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-300.a1471d1d.woff"
   },
   {
-    "revision": "8b35fa632367166d53d5",
-    "url": "/NewYorkTimes_React_project/static/js/main.75fb5f79.chunk.js"
+    "revision": "3a7b7569f484c226e9eb",
+    "url": "/NewYorkTimes_React_project/static/js/main.c94c1082.chunk.js"
   },
   {
     "revision": "bc833e725c137257c2c42a789845d82f",
@@ -40,16 +40,16 @@ self.__precacheManifest = [
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
-    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-100.e9dbbe8a.woff"
+    "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-100italic.6232f43d.woff2"
   },
   {
     "revision": "d704bb3d579b7d5e40880c75705c8a71",
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
-    "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-100italic.6232f43d.woff2"
+    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
     "revision": "d69924b98acd849cdeba9fbff3f88ea6",
@@ -72,28 +72,28 @@ self.__precacheManifest = [
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-400italic.d8bcbe72.woff2"
   },
   {
-    "revision": "de8b7431b74642e830af4d4f4b513ec9",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-500.de8b7431.woff"
+    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-400italic.9680d5a0.woff"
   },
   {
-    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-500italic.ffcc050b.woff"
+    "revision": "de8b7431b74642e830af4d4f4b513ec9",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
     "revision": "510dec37fa69fba39593e01a469ee018",
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-500italic.510dec37.woff2"
   },
   {
-    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-400italic.9680d5a0.woff"
-  },
-  {
-    "revision": "cf6613d1adf490972c557a8e318e0868",
-    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-700.cf6613d1.woff"
+    "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
     "revision": "010c1aeee3c6d1cbb1d5761d80353823",
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-700italic.010c1aee.woff2"
+  },
+  {
+    "revision": "cf6613d1adf490972c557a8e318e0868",
+    "url": "/NewYorkTimes_React_project/static/media/roboto-latin-700.cf6613d1.woff"
   },
   {
     "revision": "8c2ade503b34e31430d6c98aa29a52a3",
@@ -104,15 +104,15 @@ self.__precacheManifest = [
     "url": "/NewYorkTimes_React_project/static/media/roboto-latin-700italic.846d1890.woff"
   },
   {
-    "revision": "cf89ac567b38d5e45e92",
-    "url": "/NewYorkTimes_React_project/static/js/2.d2a05e16.chunk.js"
+    "revision": "bff00baefba2a9047249",
+    "url": "/NewYorkTimes_React_project/static/js/2.9780a9ef.chunk.js"
   },
   {
-    "revision": "cf89ac567b38d5e45e92",
+    "revision": "bff00baefba2a9047249",
     "url": "/NewYorkTimes_React_project/static/css/2.33bd9c39.chunk.css"
   },
   {
-    "revision": "8e2447c40c57698eb45c9d15613e7fb8",
+    "revision": "8446df1b28f8394e052f6999075b3e19",
     "url": "/NewYorkTimes_React_project/index.html"
   }
 ];
