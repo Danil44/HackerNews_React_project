@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Grid, Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import NewsItem from '../NewsItem/NewsItem';
 
+const getQueryParams = history => queryString.parse(history.location.search);
 class NewsList extends Component {
   state = {};
 
@@ -11,7 +13,18 @@ class NewsList extends Component {
     tag: PropTypes.string.isRequired,
     fetchNews: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+    fetchNewsWithQuery: PropTypes.func.isRequired,
+    history: PropTypes.shape({}).isRequired,
   };
+
+  componentDidMount() {
+    const { fetchNewsWithQuery, history } = this.props;
+    const params = getQueryParams(history);
+
+    if (Object.entries(params).length === 0) return;
+
+    fetchNewsWithQuery(params.query);
+  }
 
   componentDidUpdate(prevProps) {
     const { tag, fetchNews } = this.props;

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const imageStyle = {
@@ -16,7 +10,6 @@ const imageStyle = {
 const useStyles = makeStyles({
   date: {
     marginTop: 15,
-    textAlign: 'right',
   },
 });
 
@@ -45,7 +38,7 @@ const NewsItem = ({
         </Typography>
         <Typography component="p">{text}</Typography>
         <Typography className={classes.date} color="textSecondary">
-          Published: {published}
+          {published}
         </Typography>
       </CardContent>
     </Card>

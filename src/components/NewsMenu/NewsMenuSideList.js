@@ -1,48 +1,80 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MenuList, MenuItem } from '@material-ui/core';
+import { List, ListItem } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-const NewsMenuSideList = ({ toggleList, pathname }) => (
+const NewsMenuSideList = ({ onClick, toggleList, pathname }) => (
   <div
     role="presentation"
     onClick={toggleList(false)}
     onKeyDown={toggleList(false)}
   >
-    <MenuList>
-      <MenuItem component={Link} to="/" selected={pathname === '/'}>
-        Home
-      </MenuItem>
-      <MenuItem component={Link} to="/world" selected={pathname === '/world'}>
-        World
-      </MenuItem>
-      <MenuItem
+    <List>
+      <ListItem
         component={Link}
+        onClick={() => onClick('home')}
+        to="/home"
+        selected={pathname === '/'}
+      >
+        Home
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('world')}
+        to="/world"
+        selected={pathname === '/world'}
+      >
+        World
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('technology')}
         to="/technology"
         selected={pathname === '/technology'}
       >
         Technology
-      </MenuItem>
-      <MenuItem component={Link} to="/health" selected={pathname === '/health'}>
-        Health
-      </MenuItem>
-      <MenuItem component={Link} to="/sports" selected={pathname === '/sports'}>
-        Sports
-      </MenuItem>
-      <MenuItem component={Link} to="/travel" selected={pathname === '/travel'}>
-        Travel
-      </MenuItem>
-      <MenuItem
+      </ListItem>
+      <ListItem
         component={Link}
+        onClick={() => onClick('health')}
+        to="/health"
+        selected={pathname === '/health'}
+      >
+        Health
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('sports')}
+        to="/sports"
+        selected={pathname === '/sports'}
+      >
+        Sports
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('travel')}
+        to="/travel"
+        selected={pathname === '/travel'}
+      >
+        Travel
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('science')}
         to="/science"
         selected={pathname === '/science'}
       >
         Science
-      </MenuItem>
-      <MenuItem component={Link} to="/food" selected={pathname === '/food'}>
+      </ListItem>
+      <ListItem
+        component={Link}
+        onClick={() => onClick('food')}
+        to="/food"
+        selected={pathname === '/food'}
+      >
         Food
-      </MenuItem>
-    </MenuList>
+      </ListItem>
+    </List>
   </div>
 );
 

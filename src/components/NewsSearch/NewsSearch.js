@@ -15,8 +15,12 @@ function NewsSearch({ history, onSubmit }) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-
     onSubmit(form.article);
+
+    history.replace({
+      pathname: '/search',
+      search: `query=${form.article}`,
+    });
 
     setInput({ article: '' });
   };
@@ -44,6 +48,7 @@ function NewsSearch({ history, onSubmit }) {
 
 NewsSearch.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
 export default withRouter(NewsSearch);

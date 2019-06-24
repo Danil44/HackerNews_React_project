@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchNews } from '../../redux/News/NewsOperations';
+import { fetchNews, fetchNewsWithQuery } from '../../redux/News/NewsOperations';
 import NewsList from './NewsList';
 import { getNewsTag, getItems } from '../../redux/News/NewsSelectors';
 
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchNews,
+  fetchNewsWithQuery,
 };
 
 export default connect(

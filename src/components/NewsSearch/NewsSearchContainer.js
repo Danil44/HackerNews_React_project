@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import NewsSearch from './NewsSearch';
-import { searchNews } from '../../redux/News/NewsOperations';
+import { fetchNewsWithQuery } from '../../redux/News/NewsOperations';
 
 const mapDispatchToProps = {
-  onSubmit: query => searchNews(query),
+  onSubmit: query => fetchNewsWithQuery(query),
 };
 
 export default connect(

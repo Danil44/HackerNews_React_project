@@ -23,11 +23,9 @@ function NewsMenu({ changeTag, location }) {
 
   const { pathname } = location;
 
-  const tag = pathname.replace(/^\/+/g, '') || 'home';
+  // const tag = pathname.replace(/^\/+/g, '');
 
-  useEffect(() => {
-    changeTag(tag);
-  }, [tag]);
+  const handleClick = selectedTag => changeTag(selectedTag);
 
   return (
     <Fragment>
@@ -44,7 +42,11 @@ function NewsMenu({ changeTag, location }) {
           onClose={toggleList(false)}
           onOpen={toggleList(true)}
         >
-          <NewsMenuSideList toggleList={toggleList} pathname={pathname} />
+          <NewsMenuSideList
+            onClick={handleClick}
+            toggleList={toggleList}
+            pathname={pathname}
+          />
         </SwipeableDrawer>
       </div>
     </Fragment>

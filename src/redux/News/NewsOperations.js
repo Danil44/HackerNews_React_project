@@ -10,15 +10,16 @@ import {
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 const mapper = data =>
-  data.map(({ published_date: { published }, ...item }) => ({
+  data.map(({ published_date: published, ...item }) => ({
     ...item,
     id: shortid.generate(),
     published: format(published),
   }));
 
 const searchMapper = data =>
-  data.map(({ headline: { main }, ...item }) => ({
+  data.map(({ headline: { main }, _id: id, ...item }) => ({
     title: main,
+    id,
     ...item,
   }));
 
@@ -35,7 +36,7 @@ export const fetchNews = tag => dispatch => {
     .catch(err => dispatch(fetchNewsError(err)));
 };
 
-export const searchNews = query => dispatch => {
+export const fetchNewsWithQuery = query => dispatch => {
   dispatch(fetchNewsStart());
 
   axios

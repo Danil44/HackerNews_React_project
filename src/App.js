@@ -12,8 +12,16 @@ class App extends Component {
       <div>
         <CssBaseline />
         <Switch>
-          <Route path="/" component={NewsPage} />
-          <Redirect to="/" />
+          <Route path="/home" component={NewsPage} />
+          <Route path="/world" component={NewsPage} />
+          <Route path="/technology" component={NewsPage} />
+          <Route path="/health" component={NewsPage} />
+          <Route path="/sports" component={NewsPage} />
+          <Route path="/travel" component={NewsPage} />
+          <Route path="/science" component={NewsPage} />
+          <Route path="/food" component={NewsPage} />
+          <Route path="/search" component={NewsPage} />
+          <Redirect to="/home" />
         </Switch>
       </div>
     );
