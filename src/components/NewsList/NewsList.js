@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Grid, Container, Box } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import NewsItem from '../NewsItem/NewsItem';
 
 class NewsList extends Component {
   state = {};
 
-  componentDidMount() {
-    const { fetchNews } = this.props;
-    const { location } = this.props;
-    const currentPathname = location.pathname.replace(/^\/+/g, '');
-    const tag = currentPathname || 'home';
+  static propTypes = {
+    tag: PropTypes.string.isRequired,
+    fetchNews: PropTypes.func.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  };
 
-    fetchNews(tag);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const { tag, fetchNews } = this.props;
     if (prevProps.tag !== tag) {
       fetchNews(tag);

@@ -1,18 +1,36 @@
 import React, { useState } from 'react';
-import { InputBase, Typography } from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import useStyles from './NewsSearchStyles';
 
-export default function NewsSearch() {
+function NewsSearch({ history, onSubmit }) {
   const classes = useStyles();
-  const [input, setInput] = useState({ input: '' });
+  const [form, setInput] = useState({ article: '' });
+
+  const handleChange = name => evt => {
+    setInput({ [name]: evt.target.value });
+  };
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+
+    onSubmit(form.article);
+
+    setInput({ article: '' });
+  };
 
   return (
-    <div className={classes.search}>
+    <form className={classes.search} onSubmit={handleSubmit}>
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
       <InputBase
+        name="article"
+        onChange={handleChange('article')}
+        value={form.article}
+        margin="none"
         placeholder="Search…"
         classes={{
           root: classes.inputRoot,
@@ -20,6 +38,12 @@ export default function NewsSearch() {
         }}
         inputProps={{ 'aria-label': 'Search' }}
       />
-    </div>
+    </form>
   );
 }
+
+NewsSearch.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export default withRouter(NewsSearch);

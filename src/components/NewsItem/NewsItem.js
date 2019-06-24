@@ -1,16 +1,24 @@
 import React from 'react';
 import {
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
+  Divider,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const imageStyle = {
   height: 0,
   paddingTop: '40%',
 };
+
+const useStyles = makeStyles({
+  date: {
+    marginTop: 15,
+    textAlign: 'right',
+  },
+});
 
 const NewsItem = ({
   section,
@@ -19,10 +27,15 @@ const NewsItem = ({
   abstract: text,
   url,
   byline: by,
-  published_date: published,
+  published,
   multimedia,
 }) => {
-  const image = multimedia.length > 0 ? multimedia[4].url : null;
+  const classes = useStyles();
+  const imageUrl = multimedia.length > 0 ? multimedia[4].url : null;
+  const isValidUrl = imageUrl && imageUrl.includes('https');
+  const image =
+    imageUrl && !isValidUrl ? `https://static01.nyt.com/${imageUrl}` : imageUrl;
+
   return (
     <Card>
       {image && <CardMedia style={imageStyle} image={image} />}
@@ -31,6 +44,9 @@ const NewsItem = ({
           {title}
         </Typography>
         <Typography component="p">{text}</Typography>
+        <Typography className={classes.date} color="textSecondary">
+          Published: {published}
+        </Typography>
       </CardContent>
     </Card>
   );

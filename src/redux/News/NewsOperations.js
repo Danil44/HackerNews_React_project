@@ -1,5 +1,6 @@
 import axios from 'axios';
 import shortid from 'shortid';
+import { format } from 'timeago.js';
 import {
   fetchNewsStart,
   fetchNewsSuccess,
@@ -8,7 +9,18 @@ import {
 
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
-const mapper = data => data.map(item => ({ ...item, id: shortid.generate() }));
+const mapper = data =>
+  data.map(({ published_date: { published }, ...item }) => ({
+    ...item,
+    id: shortid.generate(),
+    published: format(published),
+  }));
+
+const searchMapper = data =>
+  data.map(({ headline: { main }, ...item }) => ({
+    title: main,
+    ...item,
+  }));
 
 export const fetchNews = tag => dispatch => {
   dispatch(fetchNewsStart());
@@ -19,6 +31,19 @@ export const fetchNews = tag => dispatch => {
     )
     .then(({ data: { results } }) =>
       dispatch(fetchNewsSuccess(mapper(results))),
+    )
+    .catch(err => dispatch(fetchNewsError(err)));
+};
+
+export const searchNews = query => dispatch => {
+  dispatch(fetchNewsStart());
+
+  axios
+    .get(
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${API_KEY}`,
+    )
+    .then(({ data: { response } }) =>
+      dispatch(fetchNewsSuccess(searchMapper(response.docs))),
     )
     .catch(err => dispatch(fetchNewsError(err)));
 };

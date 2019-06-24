@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import NewsMenu from '../NewsMenu/NewsMenuContainer';
 import useStyles from './NewsBarStyles';
-import NewsSearch from '../NewsSearch/NewsSearch';
+import NewsSearch from '../NewsSearch/NewsSearchContainer';
 
 const HideOnScroll = props => {
   const { children } = props;
@@ -23,7 +23,7 @@ const HideOnScroll = props => {
   );
 };
 
-const NewsBar = ({ location }, props) => {
+const NewsBar = props => {
   const classes = useStyles();
 
   return (
@@ -31,7 +31,7 @@ const NewsBar = ({ location }, props) => {
       <HideOnScroll {...props}>
         <AppBar className={classes.container}>
           <Container maxWidth="lg">
-            <Toolbar>
+            <Toolbar disableGutters>
               <NewsMenu />
               <NewsSearch />
             </Toolbar>
