@@ -9,7 +9,8 @@ class NewsList extends Component {
   componentDidMount() {
     const { fetchNews } = this.props;
     const { location } = this.props;
-    const tag = location.pathname.replace(/^\/+/g, '') || 'home';
+    const currentPathname = location.pathname.replace(/^\/+/g, '');
+    const tag = currentPathname || 'home';
 
     fetchNews(tag);
   }
@@ -26,7 +27,7 @@ class NewsList extends Component {
     return (
       <div>
         <Container maxWidth="lg">
-          <Grid container spacing={5}>
+          <Grid container spacing={4}>
             {items.map(item => (
               <Grid item xs={12} sm={6} key={item.id}>
                 <NewsItem {...item} />
