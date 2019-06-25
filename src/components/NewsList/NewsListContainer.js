@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
-import { fetchNews, fetchNewsWithQuery } from '../../redux/News/NewsOperations';
+// import { fetchNews, fetchNewsWithQuery } from '../../redux/News/NewsOperations';
 import NewsList from './NewsList';
-import { getNewsTag, getItems } from '../../redux/News/NewsSelectors';
+import { getNewsTag, getItems } from '../../redux/News/newsSelectors';
+import {
+  fetchNewsStart,
+  fetchNewsWithQueryStart,
+} from '../../redux/News/newsActions';
 
 const mapStateToProps = state => ({
   tag: getNewsTag(state),
@@ -9,8 +13,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchNews,
-  fetchNewsWithQuery,
+  fetchNews: tag => fetchNewsStart(tag),
+  fetchNewsWithQuery: query => fetchNewsWithQueryStart(query),
 };
 
 export default connect(

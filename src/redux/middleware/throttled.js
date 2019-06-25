@@ -12,6 +12,5 @@ export default store => next => action => {
   setTimeout(() => {
     throttled[action.type] = false;
   }, time);
-
   next(action);
 };

@@ -1,6 +1,8 @@
 export const Type = {
   CHANGE_TAG: 'CHANGE_TAG',
+  CHANGE_QUERY: 'CHANGE_QUERY',
   FETCH_NEWS_START: 'FETCH_NEWS_START',
+  FETCH_NEWS_WITH_QUERY_START: 'FETCH_NEWS_WITH_QUERY_START',
   FETCH_NEWS_SUCCESS: 'FETCH_NEWS_SUCCESS',
   FETCH_NEWS_ERROR: 'FETCH_NEWS_ERROR',
 };
@@ -8,13 +10,19 @@ export const Type = {
 export const changeTag = tag => ({
   type: Type.CHANGE_TAG,
   payload: { tag },
+  meta: {
+    throttled: 500,
+  },
 });
 
-export const fetchNewsStart = () => ({
+export const fetchNewsStart = tag => ({
   type: Type.FETCH_NEWS_START,
-  meta: {
-    throttle: 2000,
-  },
+  payload: { tag },
+});
+
+export const fetchNewsWithQueryStart = query => ({
+  type: Type.FETCH_NEWS_WITH_QUERY_START,
+  payload: { query },
 });
 
 export const fetchNewsSuccess = news => ({

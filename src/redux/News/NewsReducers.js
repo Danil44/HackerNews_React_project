@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { Type } from './NewsActions';
+import { Type } from './newsActions';
 
 const tagReducer = (state = '', { type, payload }) => {
   switch (type) {
