@@ -4,6 +4,7 @@ import { Grid, Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 import NewsItem from '../NewsItem/NewsItem';
+import Loader from '../Loader/Loader';
 
 const getQueryParams = history => queryString.parse(history.location.search);
 
@@ -18,6 +19,7 @@ class NewsList extends Component {
     items: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
     fetchNewsWithQuery: PropTypes.func.isRequired,
     history: PropTypes.shape({}).isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {
@@ -41,7 +43,10 @@ class NewsList extends Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, isLoading } = this.props;
+    if (isLoading) {
+      return <Loader />;
+    }
     return (
       <Container maxWidth="lg">
         <Grid container spacing={4}>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import NewsBar from '../NewsBar/NewsBarContainer';
 import NewsList from '../NewsList/NewsListContainer';
 
@@ -7,10 +7,10 @@ class NewsPage extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <NewsBar />
         <NewsList />
-      </div>
+      </Fragment>
     );
   }
 }

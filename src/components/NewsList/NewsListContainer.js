@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 // import { fetchNews, fetchNewsWithQuery } from '../../redux/News/NewsOperations';
 import NewsList from './NewsList';
-import { getNewsTag, getItems } from '../../redux/News/newsSelectors';
+import {
+  getNewsTag,
+  getItems,
+  getLoadingStatus,
+} from '../../redux/News/newsSelectors';
 import {
   fetchNewsStart,
   fetchNewsWithQueryStart,
@@ -10,6 +14,7 @@ import {
 const mapStateToProps = state => ({
   tag: getNewsTag(state),
   items: getItems(state),
+  isLoading: getLoadingStatus(state),
 });
 
 const mapDispatchToProps = {

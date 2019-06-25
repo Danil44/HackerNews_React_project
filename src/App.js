@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import NewsPage from './components/NewsPage/NewsPage';
@@ -9,7 +9,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <CssBaseline />
         <Switch>
           <Route path="/home" exact component={NewsPage} />
@@ -23,7 +23,7 @@ class App extends Component {
           <Route path="/search" exact component={NewsPage} />
           <Redirect to="/home" />
         </Switch>
-      </div>
+      </Fragment>
     );
   }
 }
