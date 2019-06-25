@@ -1,10 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
-// import ReduxThunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import NewsReducers from './News/newsReducers';
-import throttledMiddleware from './middleware/throttled';
 import newsSaga from './News/newsSagas';
 
 const rootReducer = combineReducers({
@@ -13,7 +11,7 @@ const rootReducer = combineReducers({
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middleware = applyMiddleware(throttledMiddleware, sagaMiddleware, logger);
+const middleware = applyMiddleware(sagaMiddleware, logger);
 
 const store = createStore(rootReducer, composeWithDevTools(middleware));
 

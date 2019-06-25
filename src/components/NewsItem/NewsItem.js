@@ -71,6 +71,10 @@ const NewsItem = ({
   );
 };
 
+NewsItem.defaultProps = {
+  by: '',
+};
+
 NewsItem.propTypes = {
   title: PropTypes.string.isRequired,
   published: PropTypes.string.isRequired,
@@ -79,7 +83,7 @@ NewsItem.propTypes = {
       url: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  by: PropTypes.string.isRequired,
+  by: PropTypes.string,
   abstract: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
 };

@@ -10,9 +10,6 @@ export const Type = {
 export const changeTag = tag => ({
   type: Type.CHANGE_TAG,
   payload: { tag },
-  meta: {
-    throttled: 500,
-  },
 });
 
 export const fetchNewsStart = tag => ({

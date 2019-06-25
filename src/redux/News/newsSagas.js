@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 import { format } from 'timeago.js';
-import { put, takeLatest, all, call } from 'redux-saga/effects';
+import { put, takeLatest, all, call, delay } from 'redux-saga/effects';
 import { fetchNewsSuccess, fetchNewsError } from './newsActions';
 import { getNewsApi, getNewsWithQueryApi } from './newsApi';
 
@@ -32,6 +32,7 @@ const mapSearchedData = data =>
   );
 
 function* fetchNews({ payload: { tag } }) {
+  yield delay(500);
   try {
     const data = yield call(getNewsApi, tag);
     yield put(fetchNewsSuccess(mapGotData(data)));
@@ -41,6 +42,7 @@ function* fetchNews({ payload: { tag } }) {
 }
 
 function* fetchNewsWithQuery({ payload: { query } }) {
+  yield delay(500);
   try {
     const data = yield call(getNewsWithQueryApi, query);
     yield put(fetchNewsSuccess(mapSearchedData(data)));
