@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { SwipeableDrawer, IconButton } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -22,8 +22,6 @@ function NewsMenu({ changeTag, location }) {
   };
 
   const { pathname } = location;
-
-  // const tag = pathname.replace(/^\/+/g, '');
 
   const handleClick = selectedTag => changeTag(selectedTag);
 

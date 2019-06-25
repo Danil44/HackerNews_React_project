@@ -21,6 +21,7 @@ class App extends Component {
           <Route path="/science" component={NewsPage} />
           <Route path="/food" component={NewsPage} />
           <Route path="/search" component={NewsPage} />
+          {/* <Route component={NotFound} /> */}
           <Redirect to="/home" />
         </Switch>
       </div>

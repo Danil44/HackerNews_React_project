@@ -6,6 +6,9 @@ import queryString from 'query-string';
 import NewsItem from '../NewsItem/NewsItem';
 
 const getQueryParams = history => queryString.parse(history.location.search);
+
+const getTagFromLocation = history =>
+  history.location.pathname.replace(/^\/+/g, '');
 class NewsList extends Component {
   state = {};
 
@@ -18,12 +21,16 @@ class NewsList extends Component {
   };
 
   componentDidMount() {
-    const { fetchNewsWithQuery, history } = this.props;
+    const { fetchNewsWithQuery, fetchNews, history } = this.props;
     const params = getQueryParams(history);
+    const isQueryExists = Object.entries(params).length === 0;
+    const tag = getTagFromLocation(history);
 
-    if (Object.entries(params).length === 0) return;
-
-    fetchNewsWithQuery(params.query);
+    if (isQueryExists) {
+      fetchNews(tag);
+    } else {
+      fetchNewsWithQuery(params.query);
+    }
   }
 
   componentDidUpdate(prevProps) {
