@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, Component } from 'react';
+import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import NewsPage from './components/NewsPage/NewsPage';
@@ -12,16 +12,15 @@ class App extends Component {
       <div>
         <CssBaseline />
         <Switch>
-          <Route path="/home" component={NewsPage} />
-          <Route path="/world" component={NewsPage} />
-          <Route path="/technology" component={NewsPage} />
-          <Route path="/health" component={NewsPage} />
-          <Route path="/sports" component={NewsPage} />
-          <Route path="/travel" component={NewsPage} />
-          <Route path="/science" component={NewsPage} />
-          <Route path="/food" component={NewsPage} />
-          <Route path="/search" component={NewsPage} />
-          {/* <Route component={NotFound} /> */}
+          <Route path="/home" exact component={NewsPage} />
+          <Route path="/world" exact component={NewsPage} />
+          <Route path="/technology" exact component={NewsPage} />
+          <Route path="/health" exact component={NewsPage} />
+          <Route path="/sports" exact component={NewsPage} />
+          <Route path="/travel" exact component={NewsPage} />
+          <Route path="/science" exact component={NewsPage} />
+          <Route path="/food" exact component={NewsPage} />
+          <Route path="/search" exact component={NewsPage} />
           <Redirect to="/home" />
         </Switch>
       </div>

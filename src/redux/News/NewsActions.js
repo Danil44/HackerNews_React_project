@@ -12,6 +12,9 @@ export const changeTag = tag => ({
 
 export const fetchNewsStart = () => ({
   type: Type.FETCH_NEWS_START,
+  meta: {
+    throttle: 2000,
+  },
 });
 
 export const fetchNewsSuccess = news => ({

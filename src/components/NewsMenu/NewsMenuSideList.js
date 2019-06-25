@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { List, ListItem } from '@material-ui/core';
+import { MenuList, MenuItem } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const NewsMenuSideList = ({ onClick, toggleList, pathname }) => (
@@ -9,78 +9,80 @@ const NewsMenuSideList = ({ onClick, toggleList, pathname }) => (
     onClick={toggleList(false)}
     onKeyDown={toggleList(false)}
   >
-    <List>
-      <ListItem
+    <MenuList>
+      <MenuItem
+        button
         component={Link}
         onClick={() => onClick('home')}
         to="/home"
         selected={pathname === '/'}
       >
         Home
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('world')}
         to="/world"
         selected={pathname === '/world'}
       >
         World
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('technology')}
         to="/technology"
         selected={pathname === '/technology'}
       >
         Technology
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('health')}
         to="/health"
         selected={pathname === '/health'}
       >
         Health
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('sports')}
         to="/sports"
         selected={pathname === '/sports'}
       >
         Sports
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('travel')}
         to="/travel"
         selected={pathname === '/travel'}
       >
         Travel
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('science')}
         to="/science"
         selected={pathname === '/science'}
       >
         Science
-      </ListItem>
-      <ListItem
+      </MenuItem>
+      <MenuItem
         component={Link}
         onClick={() => onClick('food')}
         to="/food"
         selected={pathname === '/food'}
       >
         Food
-      </ListItem>
-    </List>
+      </MenuItem>
+    </MenuList>
   </div>
 );
 
 NewsMenuSideList.propTypes = {
   pathname: PropTypes.string.isRequired,
   toggleList: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default NewsMenuSideList;

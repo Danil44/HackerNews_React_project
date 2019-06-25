@@ -42,11 +42,23 @@ const NewsBar = props => {
   );
 };
 
+HideOnScroll.defaultProps = {
+  children: null,
+};
+
 NewsBar.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
+
   changeTag: PropTypes.func.isRequired,
+};
+
+HideOnScroll.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 export default withRouter(NewsBar);
